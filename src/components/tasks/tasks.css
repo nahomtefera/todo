@@ -1,6 +1,100 @@
 .add-task-container {
     padding-bottom: 5em;
     border-bottom: 2px solid #f9f9f9;
+    text-align: left;
+    padding-left: 2.2em;
+    max-height: 137px;
+    box-sizing: border-box;
+}
+
+.date-picker-container:first-child {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.calendar-icon {
+    width: 40px;
+    fill: #cacaca;
+    cursor: pointer;
+    vertical-align: sub;
+    margin-right: 15px;
+}
+
+.calendar-icon:hover {
+    fill: #209fda;
+}
+
+.calendar-set {
+    width: 40px;
+    fill: #209fda;
+    cursor: pointer;
+    vertical-align: sub;
+    margin-right: 15px;
+}
+
+
+.react-datepicker-wrapper input{
+    font-size: 14px;
+    font-weight: 300;
+    background: white;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    padding: .5em;
+    border-radius: 8px;
+    box-shadow: -1px 0px 2px 2px #e6e6e6;
+}
+
+.priority-icon-main, .priority-icon {
+    width: 40px;
+    fill: #cacaca;
+    cursor: pointer;
+    vertical-align: sub;
+    margin-right: 15px;
+}
+
+.priority-icon-main:hover {
+    fill: #000;
+}
+
+.priority-levels {
+    display: none;
+    vertical-align: top;
+    margin-left: -55px;
+}
+
+.low {
+    fill: #5ddf79;
+}
+
+.med {
+    fill: #e9c44a;
+}
+
+.high {
+    fill: #ee4646;
+}
+
+.low-priority:hover {
+    fill: #5ddf79;
+}
+
+.mid-priority:hover {
+    fill: #e9c44a;
+}
+
+.high-priority:hover {
+    fill: #ee4646;
+}
+
+.priority-levels-show {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: -55px;
+}
+
+.priority-levels-show .priority-icon {
+    display: block;
 }
 
 /* Add Task input */
@@ -13,6 +107,22 @@
     border: none;
     border-radius: 8px;
     box-shadow: 1px 0px 2px 2px #e6e6e6;
+}
+
+.send-btn {
+    width: 25px;
+    fill: #cacaca;
+    vertical-align: middle;
+    border: 2px solid #dadada;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.send-btn:hover {
+    fill: #209fda;
+    border: 2px solid #209fda;
+
 }
 
 .add-task-btn {
