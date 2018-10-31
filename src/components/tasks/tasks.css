@@ -1,13 +1,16 @@
 .add-task-container {
-    margin: 5em;
+    padding-bottom: 5em;
+    border-bottom: 2px solid #f9f9f9;
 }
 
 .add-task-input {
     font-size: 1.5em;
+    margin-right: 15px;
     padding: .5em 2em;
     outline: none;
     border: none;
-    box-shadow: 0px 0px 1px 1px #cacaca;
+    border-radius: 8px;
+    box-shadow: 1px 0px 2px 2px #e6e6e6;
 }
 
 .add-task-btn {
@@ -17,19 +20,50 @@
     outline: none;
     cursor: pointer;
     border: none;
-    box-shadow: 0px 0px 1px 1px #cacaca;
     padding: .5em 2em;
+    border-radius: 8px;
+    box-shadow: -1px 0px 2px 2px #e6e6e6;
 }
 
 .task-container {
+    padding: 2em 0;
     padding-left: 2em;
+    text-align: left;
     box-sizing: border-box;
     margin-bottom: 2em;
+    border-bottom: 2px solid #f9f9f9;
 }
 
+
 .task-title {
-    font-size: 1.3em;
+    color: #3a3a3a;
+    font-size: 16px;
     font-weight: 300;
     text-align: left;
+    line-height: 34px;
+    margin: 0;
+    padding: 0 2em;
     width: 70%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.task-icons {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.svg-icons {
+    width: 35px;
+    margin: 0 10px;
+    fill: #bdbdbd;
+    cursor: pointer;
+}
+
+.check-svg:hover {
+    fill: #29b65f;
+}
+
+.trash-svg:hover {
+    fill: #ee5050;
 }
