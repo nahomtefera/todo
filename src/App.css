@@ -1,0 +1,21 @@
+.App {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "projects tasks";
+}
+
+.projects-container {
+    padding-top: 4em;
+    padding-right: 1em;
+    grid-area: projects;
+    border-right: 10px solid #fafafa;
+    text-align: right;
+}
+
+.tasks-container {
+    padding-top: 4em;
+    grid-area: tasks;
+    text-align: center;
+}
