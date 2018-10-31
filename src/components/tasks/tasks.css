@@ -3,6 +3,8 @@
     border-bottom: 2px solid #f9f9f9;
 }
 
+/* Add Task input */
+
 .add-task-input {
     font-size: 1.5em;
     margin-right: 15px;
@@ -24,6 +26,8 @@
     border-radius: 8px;
     box-shadow: -1px 0px 2px 2px #e6e6e6;
 }
+
+/* Task Container */
 
 .task-container {
     padding: 2em 0;

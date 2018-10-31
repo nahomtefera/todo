@@ -8,7 +8,7 @@
 
 .projects-container {
     padding-top: 4em;
-    padding-right: 1em;
+    padding-right: 1.5em;
     grid-area: projects;
     border-right: 7px solid #fafafa;
     text-align: right;
