@@ -70,7 +70,7 @@ class App extends Component {
           ? <StyledFriebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()} />
           : <div className="main-app">
               <SignOut signOut={()=>{firebase.auth().signOut()}} />
-              <Projects />
+              <Projects uid={this.state.authUser.uid}/>
               <Tasks />
             </div>
         }
