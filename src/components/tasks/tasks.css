@@ -64,27 +64,27 @@
 }
 
 .low {
-    fill: #5ddf79;
+    fill: #e9c44a;
 }
 
 .med {
-    fill: #e9c44a;
+    fill: #ee4646;
 }
 
 .high {
-    fill: #ee4646;
+    fill: #141414;
 }
 
 .low-priority:hover {
-    fill: #5ddf79;
-}
-
-.mid-priority:hover {
     fill: #e9c44a;
 }
 
-.high-priority:hover {
+.mid-priority:hover {
     fill: #ee4646;
+}
+
+.high-priority:hover {
+    fill: #141414;
 }
 
 .priority-levels-show {
@@ -144,10 +144,22 @@
     padding-left: 2em;
     text-align: left;
     box-sizing: border-box;
-    margin-bottom: 2em;
-    border-bottom: 2px solid #f9f9f9;
+    /* margin-bottom: 2em; */
+    border-left: 20px solid #fafafa;
+    box-shadow: 1px 0 0 1px #fafafa;
 }
 
+.task-low-priority {
+    border-left-color: #ffeaa4;
+}
+
+.task-med-priority {
+    border-left-color: #ff7f7f;
+}
+
+.task-high-priority {
+    border-left-color: #4a4a4a;
+}
 
 .task-title {
     color: #3a3a3a;
