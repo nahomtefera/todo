@@ -8,10 +8,21 @@ export default class Task extends Component {
 
         return(
             <div className={priority === null ? "task-container" : `task-container task-${priority}-priority`}>
+                {/* Icon to check completed task */}
                 <div className="task-icons">
                     <svg className="svg-icons check-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM6.7 9.29L9 11.6l4.3-4.3 1.4 1.42L9 14.4l-3.7-3.7 1.4-1.42z"/></svg>
                 </div>
-                <h2 className="task-title">{this.props.task.text}</h2>
+                {/* Actual task text */}
+                <h2 className="task-title">
+                    {this.props.task.text}
+                    <br/>
+                    {/* Calendar icon and due date */}
+                    <svg className="task-title-calendar-icon"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M1 4c0-1.1.9-2 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4zm2 2v12h14V6H3zm2-6h2v2H5V0zm8 0h2v2h-2V0zM5 9h2v2H5V9zm0 4h2v2H5v-2zm4-4h2v2H9V9zm0 4h2v2H9v-2zm4-4h2v2h-2V9zm0 4h2v2h-2v-2z"/>
+                    </svg>
+                    <span className="task-container-date">{this.props.task.date}</span>
+                </h2>
+                {/* Trash icon to remove task */}
                 <div className="task-icons">
                     <svg className="svg-icons trash-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M6 2l2-2h4l2 2h4v2H2V2h4zM3 6h14l-1 14H4L3 6zm5 2v10h1V8H8zm3 0v10h1V8h-1z"/></svg>
                 </div>

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import AddProject from './addProject'
 import './projects.css'
 
 export default class Projects extends Component {
@@ -25,6 +26,7 @@ export default class Projects extends Component {
                         })
                     }
                 </ul>
+                <AddProject />
             </div>
         )
     }

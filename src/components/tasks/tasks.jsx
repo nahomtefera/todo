@@ -12,22 +12,26 @@ export default class Tasks extends Component {
                 {
                     text: "Lorem ipsum dolor sit amet consectetur adipiscing, elit est molestie inceptos consequat, congue mi fusce nisi tellus.",
                     priority: "low",
-                    date: ""
+                    date: "Monday Nov 12",
+                    completed: false
                 },
                 {
                     text: "Lorem ipsum dolor sit amet consectetur adipiscing elit, ultrices orci aliquam tincidunt egestas placerat, eros cum dictum facilisis tristique quam.",
                     priority: "med",
-                    date: ""
+                    date: "Tuesday Nov 19",
+                    completed: false
                 },
                 {
                     text: "Lorem ipsum dolor sit amet consectetur adipiscing elit ante primis praesent porttitor nascetur, tempus egestas hendrerit ultrices molestie sed quis rhoncus justo curae.",
                     priority: "low",
-                    date: ""
+                    date: "Friday Oct 30",
+                    completed: false
                 },
                 {
                     text:"Lorem ipsum dolor sit amet consectetur adipiscing elit ante primis praesent porttitor nascetur, tempus egestas hendrerit ultrices molestie sed quis rhoncus justo curae.",
                     priority: "high",
-                    date: ""
+                    date: "Wednesday Dec 5",
+                    completed: false
                 },
             ]
 

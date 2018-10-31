@@ -1,4 +1,4 @@
-.App {
+.main-app {
     display: grid;
     height: 100vh;
     grid-template-columns: 1fr 3fr;
@@ -18,4 +18,22 @@
     padding-top: 4em;
     grid-area: tasks;
     text-align: center;
+}
+
+.sign-out-button {
+    margin-left: auto;
+    position: absolute;
+    top: 2em;
+    right: 3em;
+}
+
+.sign-out-icon {
+    width: 30px;
+    height: 30px;
+    fill: #595959;
+    cursor: pointer;
+}
+
+.sign-out-icon:hover {
+    fill: #e91e63;
 }

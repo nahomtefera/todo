@@ -20,7 +20,7 @@
     cursor: pointer;
     color: #7a7a7a7a;
     font-weight: 500;
-    text-transform: capitalize;
+    text-transform: uppercase;
 }
 
 .project-name:hover {
