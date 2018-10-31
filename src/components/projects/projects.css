@@ -26,3 +26,7 @@
 .project-name:hover {
     color: #1a1a1a;
 }
+
+.active-project {
+    color: #1a1a1a;
+}

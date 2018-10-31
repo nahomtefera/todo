@@ -19,8 +19,8 @@ class App extends Component {
       loading: false,
       // SignedUser
       authUser: null,
-      userInfo: null,
-      toggleSignIn: false
+      // CurrentProjectId
+      selectedProject: null
     }
 
     // Config for firebaseAuthUi - Authentification
@@ -43,6 +43,7 @@ class App extends Component {
       },
       signInFlow: "popup"
     }
+    this.changeProject = this.changeProject.bind(this)
   }
 
   componentDidMount() {
@@ -61,6 +62,10 @@ class App extends Component {
         : this.setState(() => ({ authUser: null }));
     });
   }
+
+  changeProject(key) {
+    this.setState({selectedProject: key})
+  }
   
   render() {
     return (
@@ -70,7 +75,7 @@ class App extends Component {
           ? <StyledFriebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()} />
           : <div className="main-app">
               <SignOut signOut={()=>{firebase.auth().signOut()}} />
-              <Projects uid={this.state.authUser.uid}/>
+              <Projects changeProject={this.changeProject} currentProject={this.state.selectedProject} uid={this.state.authUser.uid}/>
               <Tasks />
             </div>
         }

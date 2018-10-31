@@ -17,6 +17,8 @@ export default class Projects extends Component {
     componentDidMount() {
         firebase.database().ref(`users/${this.props.uid}/projects`).on("child_added", snap => {
             let projects = snap.val();
+            projects.key = snap.key;
+
             let dbprojects = this.state.fireProjects;
             dbprojects.push(projects)
             this.setState(() => ({fireProjects:dbprojects}))
@@ -24,6 +26,7 @@ export default class Projects extends Component {
     }
 
     render(){
+        let currentProject = this.props.currentProject;
         return(
             <div className="projects-container">
                 <h2 className="projects-title">Projects</h2>
@@ -34,7 +37,9 @@ export default class Projects extends Component {
                                 {
                                     this.state.fireProjects.map((project, index)=>{
                                         return (
-                                            <li key={index} className="project-name">{project.title}</li>
+                                            <li key={index} 
+                                                onClick={()=>{this.props.changeProject(project.key)}} 
+                                                className={currentProject === project.key ? "project-name active-project" :"project-name"}>{project.title}</li>
                                         )
                                     })
                                 }
