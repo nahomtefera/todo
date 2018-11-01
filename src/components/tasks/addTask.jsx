@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import moment from 'moment';
+// Firebase
+import firebase from 'firebase/app';
 
 
 export default class AddTask extends Component {
@@ -10,19 +12,24 @@ export default class AddTask extends Component {
         
         this.state = {
           startDate: moment(),
+          date: null,
           priority: null,
-          dateSet: false
+          dateSet: false,
+          task: ""
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.toggleCalendar = this.toggleCalendar.bind(this);
         this.togglePriority = this.togglePriority.bind(this);
         this.setPriority = this.setPriority.bind(this);
+        this.addTask = this.addTask.bind(this)
+        this.taskChange = this.taskChange.bind(this)
     }
      
     handleChange(date) {
         this.setState({
             startDate: date,
+            date: date.format("ddd, MMM Do YYYY"),
             dateSet: true
         }, ()=>{this.toggleCalendar()})
     }
@@ -41,7 +48,30 @@ export default class AddTask extends Component {
         this.setState({priority: level}, ()=>{this.togglePriority()})
     }
 
+    taskChange(e) {
+        let task=e.target.value;
+        this.setState({task:task})
+    }
+
+    addTask() {
+        let uid=this.props.uid;
+        let currentProject=this.props.currentProject;
+        let task=this.state.task;
+        let date=this.state.date;
+        let priority=this.state.priority;
+
+        if(task=="" || date===null || priority===null || currentProject===null) {return console.log('there are empty fields')}
+        // we reference the task obj inside the current project
+        firebase.database().ref(`users/${uid}/projects/${currentProject}/tasks`).push().set({
+            task: task,
+            date: date,
+            priority: priority,
+        })
+    }
+
     render(){
+        let task=this.state.task;
+        let taskChange=this.taskChange
         return(
             <div className="add-task-container">
                 {/* Date Selector */}
@@ -64,8 +94,8 @@ export default class AddTask extends Component {
                 </div>
                 
                 {/* Text Input and Submit btn */}
-                <input className="add-task-input" type="text" placeholder="task"/>
-                <svg className="send-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M0 0l20 10L0 20V0zm0 8v4l10-2L0 8z"/></svg>
+                <input className="add-task-input" value={task} onChange={taskChange} type="text" placeholder="task"/>
+                <svg onClick={this.addTask} className="send-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M0 0l20 10L0 20V0zm0 8v4l10-2L0 8z"/></svg>
                 {/* <button className="add-task-btn">Add Task</button> */}
             </div>
         )

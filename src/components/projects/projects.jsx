@@ -12,14 +12,25 @@ export default class Projects extends Component {
         this.state = {
             fireProjects: []
         }
+
+        this.getAllProjects = this.getAllProjects.bind(this)
     }
 
     componentDidMount() {
+        this.getAllProjects();
+
+        firebase.database().ref(`users/${this.props.uid}/projects`).on("child_removed", ()=>{
+            this.getAllProjects();
+        })
+    }
+
+    getAllProjects() {
+        let dbprojects = [];
+
         firebase.database().ref(`users/${this.props.uid}/projects`).on("child_added", snap => {
             let projects = snap.val();
             projects.key = snap.key;
 
-            let dbprojects = this.state.fireProjects;
             dbprojects.push(projects)
             this.setState(() => ({fireProjects:dbprojects}))
         });

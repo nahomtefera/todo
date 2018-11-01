@@ -68,6 +68,8 @@ class App extends Component {
   }
   
   render() {
+    let currentProject=this.state.selectedProject;
+    let changeProject=this.changeProject;
     return (
       <div className="App">
         {
@@ -75,8 +77,8 @@ class App extends Component {
           ? <StyledFriebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()} />
           : <div className="main-app">
               <SignOut signOut={()=>{firebase.auth().signOut()}} />
-              <Projects changeProject={this.changeProject} currentProject={this.state.selectedProject} uid={this.state.authUser.uid}/>
-              <Tasks />
+              <Projects changeProject={changeProject} currentProject={currentProject} uid={this.state.authUser.uid}/>
+              <Tasks currentProject={currentProject} uid={this.state.authUser.uid}/>
             </div>
         }
       </div>

@@ -25,6 +25,7 @@ export default class AddProject extends Component {
         this.db.push().set({
             id: Date.now(),
             title: this.state.projectName,
+            tasks:[""]
         })
     }
 
