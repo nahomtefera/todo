@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-// components
+// Firebase
+import firebase from 'firebase/app';
+
 
 export default class Task extends Component {
 
@@ -9,8 +11,14 @@ export default class Task extends Component {
         this.removeTask = this.removeTask.bind(this)
     }
 
-    removeTask(key) {
-        console.log(key)
+    removeTask(taskKey, projectKey) {
+        let task=this.props.task;
+        let currentProject= this.props.currentProject;
+        console.log(currentProject)
+        firebase.database().ref(`users/${this.props.uid}/projects/${projectKey}/tasks/${taskKey}`).remove().then(()=>{
+            this.props.refreshTasks(currentProject)
+        })
+
     }
 
     render(){
@@ -35,7 +43,7 @@ export default class Task extends Component {
                 </h2>
                 {/* Trash icon to remove task */}
                 <div className="task-icons">
-                    <svg className="svg-icons trash-svg" onClick={()=>{this.removeTask(task.key)}}
+                    <svg className="svg-icons trash-svg" onClick={()=>{this.removeTask(task.key, task.projectKey)}}
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M6 2l2-2h4l2 2h4v2H2V2h4zM3 6h14l-1 14H4L3 6zm5 2v10h1V8H8zm3 0v10h1V8h-1z"/>
                     </svg>
                 </div>

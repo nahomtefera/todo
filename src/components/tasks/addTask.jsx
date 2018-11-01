@@ -65,6 +65,7 @@ export default class AddTask extends Component {
         firebase.database().ref(`users/${uid}/projects/${currentProject}/tasks`).push().set({
             task: task,
             date: date,
+            projectKey: currentProject,
             priority: priority,
         })
     }

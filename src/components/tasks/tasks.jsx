@@ -18,13 +18,15 @@ export default class Tasks extends Component {
 
     componentDidMount() {
         this.getAllTasks();
+
+        firebase.database().ref(`users/${this.props.uid}/projects`).on("child_removed", snap => {
+            console.log(snap.val())
+        })    
     }
 
-    getAllTasks() {
-        let currentProject=this.props.currentProject;
-        let tasks=[]
-
-        if(currentProject===null ){
+    getAllTasks(project) {
+        if(project === undefined || project ===null) { // This condition will happen when we are refreshing all task
+            let tasks=[]
             firebase.database().ref(`users/${this.props.uid}/projects`).on("child_added", snap => {
                 let projects = snap.val();
                 if(projects.tasks !== undefined) {
@@ -37,25 +39,26 @@ export default class Tasks extends Component {
                     }
                 }
                 this.setState(()=>({tasks:tasks}))
-            })            
+            })          
+        } else { // This will refresh the tasks in the current project
+            let tasks=[]
+
+            firebase.database().ref(`users/${this.props.uid}/projects/${project}/tasks`).on("child_added", snap => {
+                let task = snap.val();
+                
+                tasks.push(task)
+                if(task==="") {tasks=[]} else{
+                    task.key=snap.key // add snap key to task object
+                }
+                this.setState(()=>({tasks:tasks}))
+            })    
         }
+
     }
 
     componentWillReceiveProps(nextProps) {
         let currentProject=nextProps.currentProject;
-        let tasks=[]
-
-        firebase.database().ref(`users/${this.props.uid}/projects/${currentProject}/tasks`).on("child_added", snap => {
-            let task = snap.val();
-            
-            tasks.push(task)
-            if(task==="") {tasks=[]} else{
-                task.key=snap.key // add snap key to task object
-            }
-            
-
-            this.setState(()=>({tasks:tasks}))
-        })    
+        this.getAllTasks(currentProject)
     }
 
     render(){
@@ -70,7 +73,7 @@ export default class Tasks extends Component {
                     tasks.length > 0 
                         ?   this.state.tasks.map((task, index)=>{
                                 return(
-                                    <Task task={task} key={index} />
+                                    <Task refreshTasks={this.getAllTasks} task={task} key={index} uid={uid} currentProject={currentProject}/>
                                 )
                             })
                         : "No tasks"
