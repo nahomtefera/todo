@@ -45,6 +45,8 @@ export default class Projects extends Component {
                 {
                     this.state.fireProjects.length > 0
                         ?   <ul className="projects-list">
+                                <li onClick={()=>{this.props.changeProject('all-projects')}} 
+                                    className={currentProject === 'all-projects' ? "project-name active-project" :"project-name"}>All Projects</li>
                                 {
                                     this.state.fireProjects.map((project, index)=>{
                                         return (

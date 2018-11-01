@@ -25,7 +25,7 @@ export default class Tasks extends Component {
     }
 
     getAllTasks(project) {
-        if(project === undefined || project ===null) { // This condition will happen when we are refreshing all task
+        if(project === undefined || project ===null || project === "all-projects") { // This condition will happen when we are refreshing all task
             let tasks=[]
             firebase.database().ref(`users/${this.props.uid}/projects`).on("child_added", snap => {
                 let projects = snap.val();

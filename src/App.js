@@ -20,7 +20,7 @@ class App extends Component {
       // SignedUser
       authUser: null,
       // CurrentProjectId
-      selectedProject: null
+      currentProject: "all-projects"
     }
 
     // Config for firebaseAuthUi - Authentification
@@ -64,11 +64,11 @@ class App extends Component {
   }
 
   changeProject(key) {
-    this.setState({selectedProject: key})
+    this.setState({currentProject: key})
   }
   
   render() {
-    let currentProject=this.state.selectedProject;
+    let currentProject=this.state.currentProject;
     let changeProject=this.changeProject;
     return (
       <div className="App">
