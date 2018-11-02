@@ -83,7 +83,11 @@ export default class Tasks extends Component {
 
         return(
             <div className="tasks-container">
-                <AddTask uid={uid} currentProject={currentProject} />
+                {currentProject === 'all-projects' 
+                    ? ""
+                    : <AddTask uid={uid} currentProject={currentProject} />
+                }
+                
 
                 <div className='rem-project-container'>
                     {
