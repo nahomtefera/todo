@@ -171,6 +171,11 @@
     color: #ff3d3d
 }
 
+.task-completed {
+    border-left-color: #29b65f;
+    background: #fafafa;
+}
+
 .task-low-priority {
     border-left-color: #ffefb8;
 }
@@ -218,6 +223,10 @@
     margin: 0 10px;
     fill: #bdbdbd;
     cursor: pointer;
+}
+
+.check-svg-completed {
+    fill: #29b65f;
 }
 
 .check-svg:hover {

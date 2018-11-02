@@ -94,7 +94,6 @@ export default class Tasks extends Component {
                 </div>
                 <h3 className="tasks-container-title">
                     {this.state.currentProjectTitle}
-
                 </h3>
                 {
                     tasks.length > 0 
