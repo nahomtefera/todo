@@ -38,29 +38,32 @@ export default class Projects extends Component {
 
     render(){
         let currentProject = this.props.currentProject;
+        let changeProject = this.props.changeProject;
         return(
             <div className="projects-container">
-                <h2 className="projects-title">Projects</h2>
-                <br/>
-                {
-                    this.state.fireProjects.length > 0
-                        ?   <ul className="projects-list">
-                                <li onClick={()=>{this.props.changeProject('all-projects')}} 
-                                    className={currentProject === 'all-projects' ? "project-name active-project" :"project-name"}>All Projects</li>
-                                {
-                                    this.state.fireProjects.map((project, index)=>{
-                                        return (
-                                            <li key={index} 
-                                                onClick={()=>{this.props.changeProject(project.key)}} 
-                                                className={currentProject === project.key ? "project-name active-project" :"project-name"}>{project.title}</li>
-                                        )
-                                    })
-                                }
-                            </ul>
-                        : "No projects"
-                }
-                
-                <AddProject uid={this.props.uid} />
+                <div className="projects-inner-container">
+                    <h2 className="projects-title">Projects</h2>
+                    <br/>
+                    {
+                        this.state.fireProjects.length > 0
+                            ?   <ul className="projects-list">
+                                    <li onClick={()=>{this.props.changeProject('all-projects')}} 
+                                        className={currentProject === 'all-projects' ? "project-name active-project" :"project-name"}>All Projects</li>
+                                    {
+                                        this.state.fireProjects.map((project, index)=>{
+                                            return (
+                                                <li key={index} 
+                                                    onClick={()=>{changeProject(project.key)}} 
+                                                    className={currentProject === project.key ? "project-name active-project" :"project-name"}>{project.title}</li>
+                                            )
+                                        })
+                                    }
+                                </ul>
+                            : "No projects"
+                    }
+                    
+                    <AddProject uid={this.props.uid} changeProject={changeProject}/>
+                </div>
             </div>
         )
     }

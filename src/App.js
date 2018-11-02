@@ -78,7 +78,7 @@ class App extends Component {
           : <div className="main-app">
               <SignOut signOut={()=>{firebase.auth().signOut()}} />
               <Projects changeProject={changeProject} currentProject={currentProject} uid={this.state.authUser.uid}/>
-              <Tasks currentProject={currentProject} uid={this.state.authUser.uid}/>
+              <Tasks changeProject={changeProject} currentProject={currentProject} uid={this.state.authUser.uid}/>
             </div>
         }
       </div>

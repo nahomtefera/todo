@@ -60,7 +60,7 @@ export default class AddTask extends Component {
         let date=this.state.date;
         let priority=this.state.priority;
 
-        if(task=="" || date===null || priority===null || currentProject===null) {return console.log('there are empty fields')}
+        if(task=="" || date===null || priority===null || currentProject===null || currentProject==='all-projects') {return console.log('there are empty fields')}
         // we reference the task obj inside the current project
         firebase.database().ref(`users/${uid}/projects/${currentProject}/tasks`).push().set({
             task: task,
@@ -95,9 +95,9 @@ export default class AddTask extends Component {
                 </div>
                 
                 {/* Text Input and Submit btn */}
-                <input className="add-task-input" value={task} onChange={taskChange} type="text" placeholder="task"/>
-                <svg onClick={this.addTask} className="send-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M0 0l20 10L0 20V0zm0 8v4l10-2L0 8z"/></svg>
-                {/* <button className="add-task-btn">Add Task</button> */}
+                <input className="add-task-input" value={task} onChange={taskChange} type="text" placeholder="New task..."/>
+                {/* <svg onClick={this.addTask} className="send-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M0 0l20 10L0 20V0zm0 8v4l10-2L0 8z"/></svg> */}
+                <button onClick={this.addTask}  className="add-task-btn">Add Task</button>
             </div>
         )
     }

@@ -1,3 +1,8 @@
+.projects-inner-container {
+    display: inline-block;
+    text-align: center;
+}
+
 .projects-title {
     font-weight: 500;
     letter-spacing: 2px;
@@ -29,4 +34,38 @@
 
 .active-project {
     color: #1a1a1a;
+}
+
+.add-project-input {
+    border: none;
+    box-shadow: 0px 0px 2px 0px #dadada;
+    width: 100%;
+    border-radius: 5px;
+    font-weight: 300;
+    box-sizing: border-box;
+    font-size: 18px;
+    padding: 6px 4px;
+    padding-left: 16px;
+    color: #333;
+    outline: none;
+}
+
+.add-project-btn {
+    margin-top: 1em;
+    font-size: 2em;
+    border-radius: 50%;
+    font-weight: bold;
+    width: 50px;
+    height: 50px;
+    line-height: 25px;
+    border: none;
+    box-shadow: 0px 1px 2px 0px #cacaca;
+    cursor: pointer;
+    color: #555;
+    outline: none;
+}
+
+.add-project-btn:hover {
+    box-shadow: 0px 1px 2px 0px #999;
+    color: #ff6767;
 }

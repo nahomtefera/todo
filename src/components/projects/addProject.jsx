@@ -27,13 +27,16 @@ export default class AddProject extends Component {
             title: this.state.projectName,
             tasks:[""]
         })
+        this.props.changeProject('all-projects')
+        this.setState({projectName:""})
     }
 
     render(){
         return(
             <div className="add-project-container">
-                <input type="text" value={this.state.projectName} onChange={this.handleChange}/>
-                <button onClick={this.addProject}>submit</button>
+                <input type="text" className="add-project-input" placeholder="New project..." value={this.state.projectName} onChange={this.handleChange}/>
+                <br/>
+                <button className="add-project-btn" onClick={this.addProject}>+</button>
             </div>
         )
     }
