@@ -8,6 +8,7 @@
     position: fixed;
     width: 100%;
     background: #fff;
+    z-index: 1;
 }
 
 .date-picker-container:first-child {
@@ -95,7 +96,7 @@
     font-size: 1.15em;
     /* margin-right: 15px; */
     width: 600px;
-    max-width: 50%;
+    max-width: 40%;
     padding: .5em 1em;
     outline: none;
     border: none;
@@ -151,16 +152,18 @@
     box-sizing: border-box;
     border-left: 20px solid #fafafa;
     box-shadow: 1px 0 0 1px #fafafa;
+    position: relative;
 }
 
 .tasks-container-title {
-    width: 400px;
     margin: 0 auto 2em auto;
     font-weight: 300;
     font-size: 1.7em;
     color: #607D8B;
     letter-spacing: 4px;
     text-transform: uppercase;
+    text-align: left;
+    padding-left: 2em;
 }
 
 .rem-project-container {

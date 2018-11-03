@@ -5,10 +5,11 @@
 
 .projects-title {
     font-weight: 500;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     display: inline-block;
     padding: 0 1em;
-    color: #333;
+    color: #ff6768;
+    text-transform: uppercase;
 }
 
 .projects-list {
@@ -62,6 +63,7 @@
     box-shadow: 0px 1px 2px 0px #cacaca;
     cursor: pointer;
     color: #555;
+    background: white;
     outline: none;
 }
 

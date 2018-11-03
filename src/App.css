@@ -7,11 +7,15 @@
 }
 
 .projects-container {
-    padding-top: 4em;
     padding-right: 1.5em;
     grid-area: projects;
     border-right: 7px solid #fafafa;
     text-align: right;
+    height: 100vh;
+    padding: 2em 4em;
+    position: fixed;
+    width: 25%;
+    box-sizing: border-box;
 }
 
 .tasks-container {
@@ -36,4 +40,71 @@
 
 .sign-out-icon:hover {
     fill: #e91e63;
+}
+
+.show-projects-menu {
+    display: none;
+}
+
+@media only screen and (max-width: 1100px) {
+    .projects-container {
+        padding-right: 1.5em;
+        grid-area: projects;
+        border-right: 7px solid #fafafa;
+        text-align: right;
+        height: 100vh;
+        padding: 2em 2em;
+        position: fixed;
+        width: 25%;
+        box-sizing: border-box;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .main-app {
+        grid-template-columns: 1fr 3fr;
+        grid-template-areas: "tasks tasks";
+    }
+
+    .projects-container {
+        display: none;
+    }
+
+    .show-projects-menu {
+        width: 20px;
+        position: fixed;
+        z-index: 1000;
+        top: 2em;
+        left: 1.5em;
+        background: white;
+        padding: 10px;
+        box-shadow: 0 0 0px 2px #68bcff;
+        border-radius: 15px;
+        fill: #2196F3;
+        display: block;
+    }
+
+    .show-projects-mobile {
+        display: block;
+        padding-right: 1.5em;
+        width: 100%;
+        border-right: none;
+        text-align: right;
+        padding: 0;
+        position: fixed;
+        box-sizing: border-box;
+        z-index: 3;
+    }
+
+    .show-projects-mobile .projects-inner-container {
+        width: 100%;
+        background: white;
+        padding-bottom: 5em;
+        padding-top: 5em;
+    }
+
+    .show-projects-mobile .add-project-input {
+        width: 250px;
+        max-width: 71%;
+    }
 }

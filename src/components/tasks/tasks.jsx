@@ -83,19 +83,15 @@ export default class Tasks extends Component {
 
         return(
             <div className="tasks-container">
-                {currentProject === 'all-projects' 
-                    ? ""
-                    : <AddTask uid={uid} currentProject={currentProject} />
+                {currentProject === 'all-projects' ? "" : <AddTask uid={uid} currentProject={currentProject} /> }
+                {
+                    currentProject !== 'all-projects'
+                    ? <div className='rem-project-container'> 
+                        <span onClick={()=>{removeProject(currentProject)}} className="rem-project">Remove Project</span>
+                        </div>
+                    : <br/>
                 }
                 
-
-                <div className='rem-project-container'>
-                    {
-                      currentProject !== 'all-projects'
-                        ? <span onClick={()=>{removeProject(currentProject)}} className="rem-project">Remove Project</span>
-                        : <br/>
-                    }
-                </div>
                 <h3 className="tasks-container-title">
                     {this.state.currentProjectTitle}
                 </h3>

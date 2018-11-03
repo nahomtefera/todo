@@ -20,7 +20,9 @@ class App extends Component {
       // SignedUser
       authUser: null,
       // CurrentProjectId
-      currentProject: "all-projects"
+      currentProject: "all-projects",
+      // mobile
+      showProjects: false
     }
 
     // Config for firebaseAuthUi - Authentification
@@ -43,7 +45,8 @@ class App extends Component {
       },
       signInFlow: "popup"
     }
-    this.changeProject = this.changeProject.bind(this)
+    this.changeProject = this.changeProject.bind(this);
+    this.toggleProjects = this.toggleProjects.bind(this);
   }
 
   componentDidMount() {
@@ -66,18 +69,25 @@ class App extends Component {
   changeProject(key) {
     this.setState({currentProject: key})
   }
+
+  toggleProjects() {
+    let showProjects=this.state.showProjects;
+    this.setState({showProjects: !showProjects})
+  }
   
   render() {
     let currentProject=this.state.currentProject;
     let changeProject=this.changeProject;
+    let showProjects=this.state.showProjects;
     return (
       <div className="App">
         {
           this.state.authUser === null
           ? <StyledFriebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()} />
           : <div className="main-app">
+              <svg onClick={this.toggleProjects} className="show-projects-menu" viewBox="0 0 20 20"><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
               <SignOut signOut={()=>{firebase.auth().signOut()}} />
-              <Projects changeProject={changeProject} currentProject={currentProject} uid={this.state.authUser.uid}/>
+              <Projects showProjects={showProjects} changeProject={changeProject} currentProject={currentProject} uid={this.state.authUser.uid}/>
               <Tasks changeProject={changeProject} currentProject={currentProject} uid={this.state.authUser.uid}/>
             </div>
         }
