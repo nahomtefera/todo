@@ -64,22 +64,31 @@
     .main-app {
         grid-template-columns: 1fr 3fr;
         grid-template-areas: "tasks tasks";
+        padding-top: 60px;
     }
 
     .projects-container {
         display: none;
     }
 
-    .show-projects-menu {
-        width: 20px;
+    .show-projects-menu-container {
         position: fixed;
+        width: 100%;
+        background: white;
+        z-index: 9;
+        padding: 1em;
+    }
+
+    .show-projects-menu {
+        width: 14px;
+        /* position: fixed; */
         z-index: 1000;
         top: 2em;
         left: 1.5em;
         background: white;
-        padding: 10px;
+        padding: 6px;
         box-shadow: 0 0 0px 2px #68bcff;
-        border-radius: 15px;
+        border-radius: 5px;
         fill: #2196F3;
         display: block;
     }
@@ -106,5 +115,20 @@
     .show-projects-mobile .add-project-input {
         width: 250px;
         max-width: 71%;
+    }
+
+    .sign-out-button {
+        margin-left: auto;
+        position: fixed;
+        top: 1em;
+        right: 2em;
+        z-index: 9;
+    }
+
+    .sign-out-icon {
+        width: 25px;
+        height: 25px;
+        fill: #595959;
+        cursor: pointer;
     }
 }

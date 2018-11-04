@@ -67,7 +67,7 @@ class App extends Component {
   }
 
   changeProject(key) {
-    this.setState({currentProject: key})
+    this.setState({currentProject: key, showProjects:false})
   }
 
   toggleProjects() {
@@ -84,12 +84,14 @@ class App extends Component {
         {
           this.state.authUser === null
           ? <StyledFriebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()} />
-          : <div className="main-app">
-              <svg onClick={this.toggleProjects} className="show-projects-menu" viewBox="0 0 20 20"><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
-              <SignOut signOut={()=>{firebase.auth().signOut()}} />
-              <Projects showProjects={showProjects} changeProject={changeProject} currentProject={currentProject} uid={this.state.authUser.uid}/>
-              <Tasks changeProject={changeProject} currentProject={currentProject} uid={this.state.authUser.uid}/>
-            </div>
+          : <div> 
+              <div className="show-projects-menu-container"><svg onClick={this.toggleProjects} className="show-projects-menu" viewBox="0 0 20 20"><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg></div>
+              <div className="main-app">
+                <SignOut signOut={()=>{firebase.auth().signOut()}} />
+                <Projects showProjects={showProjects} changeProject={changeProject} currentProject={currentProject} uid={this.state.authUser.uid}/>
+                <Tasks changeProject={changeProject} currentProject={currentProject} uid={this.state.authUser.uid}/>
+              </div>
+            </div> 
         }
       </div>
     );
