@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 // components
 import AddTask from './addTask';
 import Task from './task';
+import TasksFilter from './tasksFilter';
 import './tasks.css';
 // Firebase
 import firebase from 'firebase/app';
@@ -84,6 +85,7 @@ export default class Tasks extends Component {
         return(
             <div className="tasks-container">
                 {currentProject === 'all-projects' ? "" : <AddTask uid={uid} currentProject={currentProject} /> }
+
                 {
                     currentProject !== 'all-projects'
                     ? <div className='rem-project-container'> 
@@ -95,6 +97,8 @@ export default class Tasks extends Component {
                 <h3 className="tasks-container-title">
                     {this.state.currentProjectTitle}
                 </h3>
+                <TasksFilter />
+
                 {
                     tasks.length > 0 
                         ?   this.state.tasks.map((task, index)=>{

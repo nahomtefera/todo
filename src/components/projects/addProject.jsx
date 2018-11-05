@@ -34,7 +34,7 @@ export default class AddProject extends Component {
     render(){
         return(
             <div className="add-project-container">
-                <input type="text" className="add-project-input" placeholder="New project..." value={this.state.projectName} onChange={this.handleChange}/>
+                <input type="text" className="add-project-input" placeholder="New List..." value={this.state.projectName} onChange={this.handleChange}/>
                 <br/>
                 <button className="add-project-btn" onClick={this.addProject}>+</button>
             </div>
