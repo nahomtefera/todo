@@ -17,6 +17,7 @@ export default class Tasks extends Component {
 
         this.getAllTasks = this.getAllTasks.bind(this);
         this.removeProject = this.removeProject.bind(this);
+        this.filter = this.filter.bind(this)
     }
 
     componentDidMount() {
@@ -76,6 +77,26 @@ export default class Tasks extends Component {
         this.props.changeProject('all-projects')
     }
 
+    filter(type) {
+        console.log(type)
+        // function will be located in Tasks component
+        // _tasks will be an array equal to component props tasks
+        // _we will start by looping through each element in the array {
+        //     _if type equals date {
+        //         _we will order the array by earliest date
+        //         _each item in the array has a property "dateUnix" that will be used to determine which tasks is due earlier
+        //         _check how to order array of objects, by object parameter
+        //     }
+        //     _if type equals priority {
+        //         _we will order the array by highest priority
+        //         _each item in the array has a property "priority" that goes from 1-3, we will order the array in descending order
+        //         _check how to order array of objects, by object parameter
+        //     }
+        // }
+        // _update state to assign the new ordered tasks to state.tasks
+
+    }
+
     render(){
         let currentProject=this.props.currentProject;
         let uid=this.props.uid;
@@ -97,7 +118,7 @@ export default class Tasks extends Component {
                 <h3 className="tasks-container-title">
                     {this.state.currentProjectTitle}
                 </h3>
-                <TasksFilter />
+                <TasksFilter filter={this.filter}/>
 
                 {
                     tasks.length > 0 
