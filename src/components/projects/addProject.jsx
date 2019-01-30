@@ -28,6 +28,7 @@ export default class AddProject extends Component {
             tasks:[""]
         })
         this.props.changeProject('all-projects')
+        this.props.getAllProjects();
         this.setState({projectName:""})
     }
 

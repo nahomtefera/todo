@@ -20,16 +20,17 @@ export default class Projects extends Component {
         this.getAllProjects();
 
         firebase.database().ref(`users/${this.props.uid}/projects`).on("child_removed", ()=>{
-            let updatedProjects = [];
+            // let updatedProjects = [];
 
-            firebase.database().ref(`users/${this.props.uid}/projects`).once('value').then(snap=>{
-                let allProjects = snap.val()
-                for (let key in allProjects) {
-                    allProjects[key].key = key
-                    updatedProjects.push(allProjects[key])
-                }
-                this.setState({fireProjects: updatedProjects})
-            });
+            // firebase.database().ref(`users/${this.props.uid}/projects`).once('value').then(snap=>{
+            //     let allProjects = snap.val()
+            //     for (let key in allProjects) {
+            //         allProjects[key].key = key
+            //         updatedProjects.push(allProjects[key])
+            //     }
+            //     this.setState({fireProjects: updatedProjects})
+            // });
+            this.getAllProjects();
 
         })
     }
@@ -73,7 +74,7 @@ export default class Projects extends Component {
                         : <span>No projects<br/> <br/></span>
                     }
                     
-                    <AddProject uid={this.props.uid} changeProject={changeProject}/>
+                    <AddProject uid={this.props.uid} getAllProjects={this.getAllProjects} changeProject={changeProject}/>
                 </div>
             </div>
         )

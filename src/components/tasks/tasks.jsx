@@ -67,7 +67,6 @@ export default class Tasks extends Component {
                 : this.setState({currentProjectTitle: "All Projects"})
         })
     }
-    /* issue: when there is only 1 project left, removing that project won't update the projects array */
 
     removeProject(project) {
         firebase.database().ref(`users/${this.props.uid}/projects/${project}`).remove()
