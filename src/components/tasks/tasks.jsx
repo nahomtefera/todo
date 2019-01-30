@@ -27,19 +27,29 @@ export default class Tasks extends Component {
     getAllTasks(project) {
         if(project === undefined || project ===null || project === "all-projects") { // This condition will happen when we are refreshing all task
             let tasks=[]
-            firebase.database().ref(`users/${this.props.uid}/projects`).on("child_added", snap => {
-                let projects = snap.val();
-                if(projects.tasks !== undefined) {
-                    let project=projects.tasks;
-                    for(var task in project) {
-                        if(project[task] !== "") { // this will prevent empty tasks to be shown
-                            project[task].key = task// we add the snap key to the task object
-                            tasks.unshift(project[task])
-                        } 
+            firebase.database().ref(`users/${this.props.uid}/projects`).once("value", snap => {
+                let projects = snap.val()
+                // If we want to get all tasks we will use the once("value") method
+                // We will get a snap of all the projects as an object
+                // We will iterate through the projects object
+                // Check if each project has tasks
+                // If the project has tasks, we will iterate through those tasks
+                // And add to the tasks var every task that is not empty
+                for (let key in projects) {
+                    let project = projects[key]
+                    if(project.tasks !== undefined) {
+                        let projectTasks = project.tasks
+                        for (let key in projectTasks) {
+                            let task = projectTasks[key]
+                            if(task != "") {
+                                task.key = key;
+                                tasks.unshift(task)
+                            }
+                        }
                     }
                 }
                 this.setState(()=>({tasks:tasks}))
-            })          
+            });      
         } else { // This will refresh the tasks in the current project
             let tasks=[]
 

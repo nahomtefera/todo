@@ -7,7 +7,8 @@ export default class AddProject extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            projectName: ""
+            projectName: "",
+            nameError: false
         }
         this.db = firebase.database().ref(`users/${this.props.uid}/`).child("projects");
 
@@ -21,21 +22,25 @@ export default class AddProject extends Component {
     }
 
     addProject() {
-        console.log(this.state.projectName)
-        this.db.push().set({
-            id: Date.now(),
-            title: this.state.projectName,
-            tasks:[""]
-        })
-        this.props.changeProject('all-projects')
-        this.props.getAllProjects();
-        this.setState({projectName:""})
+        if (this.state.projectName == '') {
+            this.setState({nameError: true})
+        } else {
+            this.db.push().set({
+                id: Date.now(),
+                title: this.state.projectName,
+                tasks:[""]
+            })
+            this.props.changeProject('all-projects')
+            this.setState({projectName:"", nameError: false})
+        }
     }
 
     render(){
+        let nameError = this.state.nameError;
+
         return(
             <div className="add-project-container">
-                <input type="text" className="add-project-input" placeholder="New List..." value={this.state.projectName} onChange={this.handleChange}/>
+                <input type="text" className={nameError ? "add-project-input-error" : "add-project-input"} placeholder="New List..." value={this.state.projectName} onChange={this.handleChange}/>
                 <br/>
                 <button className="add-project-btn" onClick={this.addProject}>+</button>
             </div>

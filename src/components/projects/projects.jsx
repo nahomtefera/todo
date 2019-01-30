@@ -13,29 +13,10 @@ export default class Projects extends Component {
             fireProjects: []
         }
 
-        this.getAllProjects = this.getAllProjects.bind(this)
+        // this.getAllProjects = this.getAllProjects.bind(this)
     }
 
     componentDidMount() {
-        this.getAllProjects();
-
-        firebase.database().ref(`users/${this.props.uid}/projects`).on("child_removed", ()=>{
-            // let updatedProjects = [];
-
-            // firebase.database().ref(`users/${this.props.uid}/projects`).once('value').then(snap=>{
-            //     let allProjects = snap.val()
-            //     for (let key in allProjects) {
-            //         allProjects[key].key = key
-            //         updatedProjects.push(allProjects[key])
-            //     }
-            //     this.setState({fireProjects: updatedProjects})
-            // });
-            this.getAllProjects();
-
-        })
-    }
-
-    getAllProjects() {
         let dbprojects = [];
 
         firebase.database().ref(`users/${this.props.uid}/projects`).on("child_added", snap => {
@@ -45,7 +26,20 @@ export default class Projects extends Component {
             dbprojects.push(projects)
             this.setState(() => ({fireProjects:dbprojects}))
         });
+
+        firebase.database().ref(`users/${this.props.uid}/projects`).on("child_removed", snap => {
+            let projects = snap.val();
+            projects.key = snap.key;
+            for (let i =0; i<dbprojects.length;i++) {
+                if(dbprojects[i].key === projects.key) {
+                    dbprojects.splice(i, 1)
+                }
+            }
+            this.setState(() => ({fireProjects:dbprojects}))
+        });
     }
+
+    // getAllProjects() {} we might revisit this function at some point
 
     render(){
         let currentProject = this.props.currentProject;
@@ -74,7 +68,7 @@ export default class Projects extends Component {
                         : <span>No projects<br/> <br/></span>
                     }
                     
-                    <AddProject uid={this.props.uid} getAllProjects={this.getAllProjects} changeProject={changeProject}/>
+                    <AddProject uid={this.props.uid} changeProject={changeProject}/>
                 </div>
             </div>
         )
