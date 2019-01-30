@@ -21,14 +21,13 @@ export default class Projects extends Component {
 
         firebase.database().ref(`users/${this.props.uid}/projects`).on("child_removed", ()=>{
             let updatedProjects = [];
+
             firebase.database().ref(`users/${this.props.uid}/projects`).once('value').then(snap=>{
                 let allProjects = snap.val()
-
                 for (let key in allProjects) {
                     allProjects[key].key = key
                     updatedProjects.push(allProjects[key])
                 }
-
                 this.setState({fireProjects: updatedProjects})
             });
 
@@ -71,7 +70,7 @@ export default class Projects extends Component {
                                     })
                                 }
                             </ul>
-                        : "No projects"
+                        : <span>No projects<br/> <br/></span>
                     }
                     
                     <AddProject uid={this.props.uid} changeProject={changeProject}/>

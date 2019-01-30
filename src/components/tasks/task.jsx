@@ -13,11 +13,10 @@ export default class Task extends Component {
     }
 
     removeTask(taskKey, projectKey) {
-        let task=this.props.task;
         let currentProject= this.props.currentProject;
-        console.log(currentProject)
+
         firebase.database().ref(`users/${this.props.uid}/projects/${projectKey}/tasks/${taskKey}`).remove().then(()=>{
-            this.props.refreshTasks(currentProject)
+            this.props.getAllTasks(currentProject)
         })
     }
 
@@ -29,7 +28,7 @@ export default class Task extends Component {
         update["completed"] = !status;
 
         firebase.database().ref(`users/${this.props.uid}/projects/${currentProject}/tasks/${taskId}`).update(update)
-        this.props.refreshTasks(this.props.currentProject)
+        this.props.getAllTasks(this.props.currentProject)
     }
 
     render(){

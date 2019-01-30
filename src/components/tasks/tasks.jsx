@@ -22,8 +22,6 @@ export default class Tasks extends Component {
 
     componentDidMount() {
         this.getAllTasks();
-
-        
     }
 
     getAllTasks(project) {
@@ -123,7 +121,7 @@ export default class Tasks extends Component {
                     tasks.length > 0 
                         ?   this.state.tasks.map((task, index)=>{
                                 return(
-                                    <Task refreshTasks={this.getAllTasks} task={task} key={index} uid={uid} currentProject={currentProject}/>
+                                    <Task getAllTasks={this.getAllTasks} task={task} key={index} uid={uid} currentProject={currentProject}/>
                                 )
                             })
                         : "No tasks"
