@@ -20,7 +20,18 @@ export default class Projects extends Component {
         this.getAllProjects();
 
         firebase.database().ref(`users/${this.props.uid}/projects`).on("child_removed", ()=>{
-            this.getAllProjects();
+            let updatedProjects = [];
+            firebase.database().ref(`users/${this.props.uid}/projects`).once('value').then(snap=>{
+                let allProjects = snap.val()
+
+                for (let key in allProjects) {
+                    allProjects[key].key = key
+                    updatedProjects.push(allProjects[key])
+                }
+
+                this.setState({fireProjects: updatedProjects})
+            });
+
         })
     }
 
@@ -47,20 +58,20 @@ export default class Projects extends Component {
                     <br/>
                     {
                         this.state.fireProjects.length > 0
-                            ?   <ul className="projects-list">
-                                    <li onClick={()=>{this.props.changeProject('all-projects')}} 
-                                        className={currentProject === 'all-projects' ? "project-name active-project" :"project-name"}>All Projects</li>
-                                    {
-                                        this.state.fireProjects.map((project, index)=>{
-                                            return (
-                                                <li key={index} 
-                                                    onClick={()=>{changeProject(project.key)}} 
-                                                    className={currentProject === project.key ? "project-name active-project" :"project-name"}>{project.title}</li>
-                                            )
-                                        })
-                                    }
-                                </ul>
-                            : "No projects"
+                        ?   <ul className="projects-list">
+                                <li onClick={()=>{this.props.changeProject('all-projects')}} 
+                                    className={currentProject === 'all-projects' ? "project-name active-project" :"project-name"}>All Projects</li>
+                                {
+                                    this.state.fireProjects.map((project, index)=>{
+                                        return (
+                                            <li key={index} 
+                                                onClick={()=>{changeProject(project.key)}} 
+                                                className={currentProject === project.key ? "project-name active-project" :"project-name"}>{project.title}</li>
+                                        )
+                                    })
+                                }
+                            </ul>
+                        : "No projects"
                     }
                     
                     <AddProject uid={this.props.uid} changeProject={changeProject}/>

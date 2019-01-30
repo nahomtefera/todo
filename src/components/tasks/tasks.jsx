@@ -23,9 +23,7 @@ export default class Tasks extends Component {
     componentDidMount() {
         this.getAllTasks();
 
-        firebase.database().ref(`users/${this.props.uid}/projects`).on("child_removed", snap => {
-            console.log(snap.val())
-        })    
+        
     }
 
     getAllTasks(project) {
@@ -71,6 +69,7 @@ export default class Tasks extends Component {
                 : this.setState({currentProjectTitle: "All Projects"})
         })
     }
+    /* issue: when there is only 1 project left, removing that project won't update the projects array */
 
     removeProject(project) {
         firebase.database().ref(`users/${this.props.uid}/projects/${project}`).remove()
@@ -118,7 +117,7 @@ export default class Tasks extends Component {
                 <h3 className="tasks-container-title">
                     {this.state.currentProjectTitle}
                 </h3>
-                <TasksFilter filter={this.filter}/>
+                {/* <TasksFilter filter={this.filter}/> */}
 
                 {
                     tasks.length > 0 

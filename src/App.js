@@ -21,7 +21,7 @@ class App extends Component {
       authUser: null,
       // CurrentProjectId
       currentProject: "all-projects",
-      // mobile
+      // mobile, show list of projects
       showProjects: false
     }
 
@@ -76,16 +76,19 @@ class App extends Component {
   }
   
   render() {
-    let currentProject=this.state.currentProject;
-    let changeProject=this.changeProject;
-    let showProjects=this.state.showProjects;
+    let currentProject=this.state.currentProject, changeProject=this.changeProject, showProjects=this.state.showProjects;
+    
     return (
       <div className="App">
         {
           this.state.authUser === null
+          // Show login page if user is not logged in 
           ? <StyledFriebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()} />
-          : <div> 
-              <div className="show-projects-menu-container"><svg onClick={this.toggleProjects} className="show-projects-menu" viewBox="0 0 20 20"><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg></div>
+          // Show projects page when user is logged 
+          : <div>
+              {/* Menu SVG will only show for mobile devices */}
+              <div className="show-projects-menu-container"><svg onClick={this.toggleProjects} className="show-projects-menu" viewBox="0 0 20 20"><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg></div>              
+              {/* Main components for home page */}             
               <div className="main-app">
                 <SignOut signOut={()=>{firebase.auth().signOut()}} />
                 <Projects showProjects={showProjects} changeProject={changeProject} currentProject={currentProject} uid={this.state.authUser.uid}/>
