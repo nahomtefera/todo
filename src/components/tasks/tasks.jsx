@@ -127,7 +127,7 @@ export default class Tasks extends Component {
                                     <Task getAllTasks={this.getAllTasks} task={task} key={index} uid={uid} currentProject={currentProject}/>
                                 )
                             })
-                        : "No tasks"
+                        : <div className="no-content-block">You don't have any tasks yet</div>
                 }
 
                 {

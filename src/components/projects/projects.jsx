@@ -65,7 +65,7 @@ export default class Projects extends Component {
                                     })
                                 }
                             </ul>
-                        : <span>No projects<br/> <br/></span>
+                        : <div className="no-content-block">Add a project</div>
                     }
                     
                     <AddProject uid={this.props.uid} changeProject={changeProject}/>
