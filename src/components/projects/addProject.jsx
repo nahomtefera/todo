@@ -25,12 +25,17 @@ export default class AddProject extends Component {
         if (this.state.projectName == '') {
             this.setState({nameError: true})
         } else {
-            this.db.push().set({
+            const ref = this.db.push();
+            ref.set({
                 id: Date.now(),
                 title: this.state.projectName,
                 tasks:[""]
             })
-            this.props.changeProject('all-projects')
+
+            // We want to get the key right away 
+            // To be able to go the tasks page for that list
+            let newListKey=ref.key;
+            this.props.changeProject(newListKey)
             this.setState({projectName:"", nameError: false})
         }
     }
