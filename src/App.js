@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Logo from './components/logo/logo';
 // components
 import Projects from './components/projects/projects';
 import Tasks from './components/tasks/tasks';
@@ -90,6 +91,7 @@ class App extends Component {
               <div className="show-projects-menu-container"><svg onClick={this.toggleProjects} className="show-projects-menu" viewBox="0 0 20 20"><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg></div>              
               {/* Main components for home page */}             
               <div className="main-app">
+                <Logo />
                 <SignOut signOut={()=>{firebase.auth().signOut()}} />
                 <Projects showProjects={showProjects} changeProject={changeProject} currentProject={currentProject} uid={this.state.authUser.uid}/>
                 <Tasks changeProject={changeProject} currentProject={currentProject} uid={this.state.authUser.uid}/>

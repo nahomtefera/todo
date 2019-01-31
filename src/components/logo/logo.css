@@ -1,0 +1,22 @@
+.logo-container {
+  position: absolute;
+}
+
+.logo {
+  width: 75px;
+  padding: 10px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .logo-container {
+    position: absolute;
+    width: 200px;
+    text-align: center;
+    top: 0;
+    z-index: 9;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+  }
+}
