@@ -111,20 +111,14 @@ export default class Tasks extends Component {
 
         return(
             <div className="tasks-container">
-                {currentProject === 'all-projects' ? "" : <AddTask uid={uid} currentProject={currentProject} /> }
-
-                {
-                    currentProject !== 'all-projects'
-                    ? <div className='rem-project-container'> 
-                        <span onClick={()=>{removeProject(currentProject)}} className="rem-project">Remove Project</span>
-                        </div>
-                    : <br/>
-                }
                 
                 <h3 className="tasks-container-title">
                     {this.state.currentProjectTitle}
                 </h3>
+                
                 {/* <TasksFilter filter={this.filter}/> */}
+
+                {currentProject === 'all-projects' ? "" : <AddTask uid={uid} currentProject={currentProject} /> }
 
                 {
                     tasks.length > 0 
@@ -135,6 +129,15 @@ export default class Tasks extends Component {
                             })
                         : "No tasks"
                 }
+
+                {
+                    currentProject !== 'all-projects'
+                    ? <div className='rem-project-container'> 
+                        <span onClick={()=>{removeProject(currentProject)}} className="rem-project">Remove Project</span>
+                        </div>
+                    : <br/>
+                }
+
             </div>
         )
     }
