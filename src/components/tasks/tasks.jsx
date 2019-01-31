@@ -12,12 +12,14 @@ export default class Tasks extends Component {
         super(props)
         this.state = {
             currentProjectTitle: "All Projects",
-            tasks: []
+            tasks: [],
+            showModal: false
         }
 
         this.getAllTasks = this.getAllTasks.bind(this);
         this.removeProject = this.removeProject.bind(this);
-        this.filter = this.filter.bind(this)
+        this.filter = this.filter.bind(this);
+        this.toggleModal = this.toggleModal.bind(this);
     }
 
     componentDidMount() {
@@ -80,7 +82,14 @@ export default class Tasks extends Component {
 
     removeProject(project) {
         firebase.database().ref(`users/${this.props.uid}/projects/${project}`).remove()
-        this.props.changeProject('all-projects')
+        this.props.changeProject('all-projects');
+        this.toggleModal()
+    }
+
+    toggleModal() {
+        let modal = this.state.showModal;
+
+        this.setState({showModal: !modal})
     }
 
     filter(type) {
@@ -108,6 +117,7 @@ export default class Tasks extends Component {
         let uid=this.props.uid;
         let tasks=this.state.tasks;
         let removeProject=this.removeProject;
+        let toggleModal=this.toggleModal;
 
         return(
             <div className="tasks-container">
@@ -129,13 +139,31 @@ export default class Tasks extends Component {
                             })
                         : <div className="no-content-block">You don't have any tasks yet</div>
                 }
-
+                {/* Remove project will only show if we are not in 'all-projects' */}
                 {
                     currentProject !== 'all-projects'
                     ? <div className='rem-project-container'> 
-                        <span onClick={()=>{removeProject(currentProject)}} className="rem-project">Remove Project</span>
+                        <span onClick={()=>{toggleModal()}} className="rem-project">Remove Project</span>
                         </div>
                     : <br/>
+                }
+                {/* Modal to verify project removal */}
+                {   // Show modal only when showModal state is true and whem current project is not all-projects
+                    this.state.showModal && this.state.currentProject !== 'all-projects' 
+                    ?   <div className="modal-container">
+                            <div className="modal"> 
+                                <div className="modal-title"> 
+                                    Are you sure you want to remove this project? <br/>
+                                    <span className="modal-small-print">*This can not be undone.</span>
+                                </div>
+
+                                <div className="modal-btn-container">
+                                    <div className="modal-btn confirm-btn" onClick={()=>{removeProject(currentProject)}}>Yes</div>
+                                    <div className="modal-btn cancel-btn" onClick={()=>{toggleModal()}}>No</div>
+                                </div>
+                            </div>
+                        </div>
+                    : null
                 }
 
             </div>

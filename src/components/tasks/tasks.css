@@ -223,6 +223,77 @@
     box-shadow: 0px 0px 1px 2px #e91e62ba;
 }
 
+.modal-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ababab1f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.modal {
+    border-radius: 37px;
+    background: #fff;
+    padding: 2em;
+    box-sizing: border-box;
+    font-family: Roboto;
+    font-size: 1.2em;
+    text-align: left;
+    max-width: 90%;
+    box-shadow: 0px 0px 1px 2px #e91e6221;
+    color: #ff578e;
+    font-weight: 500;
+}
+
+.modal-small-print {
+    font-size: 0.7em;
+}
+
+.modal-btn-container {
+    margin-top: 2em;
+    display: flex;
+    justify-content: space-around;
+}
+
+.modal-btn {
+    border-radius: 10px;
+    display: inline-block;
+    padding: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0px 0px 1px 2px #7d7d7dba;
+    cursor: pointer;
+}
+
+.confirm-btn {
+    color: #7d7d7dba;;
+}
+
+.cancel-btn {
+    color: #e91e62ba;
+    background: #fff;
+    box-shadow: 0px 0px 1px 2px #e91e62ba;
+}
+
+.confirm-btn:hover {
+    color: #fff!important;
+    background: #505050ba;
+    box-shadow: 0px 0px 1px 0px #505050ba;
+}
+
+.cancel-btn:hover {
+    color: #fff;
+    background: #e91e62ba;
+    box-shadow: 0px 0px 1px 2px #e91e62ba;
+}
+
 .task-completed {
     border-left-color: #29b65f;
     background: #fafafa;
