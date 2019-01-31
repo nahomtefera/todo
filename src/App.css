@@ -95,7 +95,8 @@ input::placeholder {
         width: 100%;
         background: white;
         z-index: 9;
-        padding: 1em;
+        padding: .7em;
+        padding-left: 1.2em;
     }
 
     .show-projects-menu {
@@ -105,7 +106,6 @@ input::placeholder {
         top: 2em;
         left: 1.5em;
         background: white;
-        padding: 6px;
         /* box-shadow: 0 0 0px 2px #68bcff; */
         border-radius: 5px;
         fill: #2196F3;
