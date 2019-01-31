@@ -126,6 +126,7 @@ input::placeholder {
 
     .show-projects-mobile .projects-inner-container {
         width: 100%;
+        min-height: 100vh;
         background: white;
         padding-bottom: 5em;
         padding-top: 5em;
