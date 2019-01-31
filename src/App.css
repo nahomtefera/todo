@@ -99,14 +99,14 @@ input::placeholder {
     }
 
     .show-projects-menu {
-        width: 14px;
+        width: 30px;
         /* position: fixed; */
         z-index: 1000;
         top: 2em;
         left: 1.5em;
         background: white;
         padding: 6px;
-        box-shadow: 0 0 0px 2px #68bcff;
+        /* box-shadow: 0 0 0px 2px #68bcff; */
         border-radius: 5px;
         fill: #2196F3;
         display: block;
