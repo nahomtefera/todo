@@ -134,7 +134,7 @@ input::placeholder {
         overflow-y: scroll;
     }
 
-    .show-projects-mobile .add-project-input {
+    .show-projects-mobile .add-project-input, .add-project-input-error {
         width: 250px;
         max-width: 71%;
     }
