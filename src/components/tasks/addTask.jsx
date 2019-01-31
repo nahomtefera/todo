@@ -69,6 +69,7 @@ export default class AddTask extends Component {
             projectKey: currentProject,
             priority: priority,
         })
+        this.setState({task:''})
     }
 
     render(){
