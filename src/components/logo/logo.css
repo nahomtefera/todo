@@ -3,8 +3,9 @@
 }
 
 .logo {
-  width: 75px;
+  width: 110px;
   padding: 10px;
+  transform: rotate(-9deg);
 }
 
 @media only screen and (max-width: 1024px) {
@@ -17,6 +18,8 @@
     left: 0;
     right: 0;
     margin: auto;
-
+  }
+  .logo {
+    transform: none;
   }
 }
