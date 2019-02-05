@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import './App.css';
 import Logo from './components/logo/logo';
 // components
+import LandingPage from './components/landingPage/landingPage'
 import Projects from './components/projects/projects';
 import Tasks from './components/tasks/tasks';
 import SignOut from './components/signOut/signOut'
 // Firebase 
 import firebase from 'firebase/app';
 import './firebase/';
-// Firebase auth ui
-import StyledFriebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+
 
 class App extends Component {
   constructor(props) {
@@ -85,7 +85,7 @@ class App extends Component {
         {
           this.state.authUser === null
           // Show login page if user is not logged in 
-          ? <StyledFriebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()} />
+          ? <LandingPage uiConfig={this.uiConfig} firebaseAuth={firebase.auth()} > </LandingPage>
           // Show projects page when user is logged 
           : <div>
               {/* Menu SVG will only show for mobile devices */}
