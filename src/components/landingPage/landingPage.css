@@ -3,13 +3,82 @@
   width: 100%;
   height: 100vh;
   display: grid;
-  grid-template-columns: 3fr 4fr;
+  grid-template-columns: 4fr 5fr;
   grid-template-rows: 100px 2fr 1fr;
+  font-family: Roboto;
 }
 
-.lp_illustration {
+.lp_illustration_container {
   width: 95%;
   margin: 0 auto;
   grid-column-start: 2;
   grid-row-start: 2;
 }
+
+.lp_info_container {
+  margin: auto 2em;
+  padding: 1em 2em 1em 2em;
+  font-size: 1.5em;
+  font-family: Roboto;
+  color: #fff;
+  grid-column-start: 1;
+  grid-row-start: 2;
+  background: #6666660d;
+  border-radius: 15px;
+  box-shadow: 0px 0px 4px 0px #00000021;
+}
+
+.lp_info_container:hover {
+  background: #3f3f3f0d;
+  box-shadow: 0px 0px 4px 0px #00000021;
+}
+
+.lp_info_header {
+  font-weight: 400;
+}
+
+.lp_info_text {
+  font-size: .95em;
+  font-weight: 400;
+  word-spacing: 2px;
+  line-height: 35px;
+}
+
+/* .lp_cta {
+  padding: 1em;
+  display: inline-block;
+  border-radius: 25px;
+  background: white;
+  color: #ff6d4e;
+  cursor: pointer;
+  box-shadow: 1px 1px 3px 0px #e0e0e0;
+  text-transform: uppercase;
+  font-weight: bold;
+} */
+/* 
+.lp_cta:hover {
+  background: #ff6d4e;
+  color: white;
+  box-shadow: 0px 0px 3px 0px rgb(201, 201, 201);
+} */
+
+.firebaseui-idp-button {
+  border-radius: 15px!important;
+  /* background: rgba(255, 255, 255, 0.418)!important; */
+}
+
+.firebaseui-idp-button:hover {
+  box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.199);
+}
+
+.firebaseui-container, .firebaseui-idp-list {
+  display: inline-block;
+}
+
+.firebaseui-idp-list {
+  display: inline-block;
+}
+
+/* .firebaseui-idp-button:hover {
+  background: #ff6d4e;
+} */

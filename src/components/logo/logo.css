@@ -8,6 +8,11 @@
   transform: rotate(-9deg);
 }
 
+.logo_lp {
+  width: 225px;
+  padding: 3em 6em;
+}
+
 @media only screen and (max-width: 1024px) {
   .logo-container {
     position: absolute;

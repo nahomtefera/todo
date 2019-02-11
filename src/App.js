@@ -28,9 +28,10 @@ class App extends Component {
 
     // Config for firebaseAuthUi - Authentification
     this.uiConfig = {
+      signInFlow: "popup",
       signInOptions: [
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        firebase.auth.EmailAuthProvider.PROVIDER_ID
+        // firebase.auth.EmailAuthProvider.PROVIDER_ID
       ],
       callbacks: {
         signInSuccessWithAuthResult: (data) => {
@@ -45,7 +46,6 @@ class App extends Component {
           alert(error)
         }
       },
-      signInFlow: "popup"
     }
     this.changeProject = this.changeProject.bind(this);
     this.toggleProjects = this.toggleProjects.bind(this);
