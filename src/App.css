@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
 
 
 div::selection, h2::selection, h3::selection, h1::selection, li::selection, input::selection, button::selection, br::selection, span::selection {

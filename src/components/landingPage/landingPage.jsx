@@ -12,7 +12,7 @@ var colorFunc = function(x, y) {
 	return 'hsl('+Math.floor(Math.abs(x*y)*360)+',80%,60%)';
 };
 
-let pattern = Trianglify({ height: window.innerHeight, width: window.innerWidth, cell_size: 250, x_colors: ['#fe4a49', '#fed766', '#2ab7ca'], variance: .4, seed: 'todoendo'}).png();
+let pattern = Trianglify({ height: window.innerHeight, width: window.innerWidth, cell_size: 250, x_colors: ['#fe4a49', '#ffe500', '#5b00ff'], variance: .4, seed: 'todoendo'}).png();
 
 
 const LandingPage = props => {
@@ -21,16 +21,22 @@ const LandingPage = props => {
       
       <Logo lp={true} />
       <div className="lp_info_container">
-        <h1 className="lp_info_header">Never worry about forgeting things again</h1>
-        <p className="lp_info_text">Lorem ipsum dolor sit amet consectetur adipiscing elit nascetur magnis tristique, eu primis eros habitant eleifend fusce faucibus torquent egestas, fringilla praesent hac cras placerat dis massa velit congue.</p>
+        <h1 className="lp_info_header">Make your life easier with a simple todo list application.</h1>
+        <p className="lp_info_text">
+          Todoendo - a powerful <b>todo</b> app, to help you deal with complex aspects of life in a visually appealing and intuitive interface.
+        </p>
         <div className="lp_cta">
         <StyledFriebaseAuth uiConfig={props.uiConfig} firebaseAuth={props.firebaseAuth} />
         </div>
       </div>
 
       <div className="lp_illustration_container">
-        <img className="lp_illustration" src={require('../../images/lp_illustration.svg')} alt=""/>
-      </div>    
+        <img className="lp_illustration" src={require('../../images/lp_illustration_2.svg')} alt=""/>
+      </div>  
+
+      <div className="lp_footer">
+        <b>2019 &copy; todoendo</b>. All rights reserved.
+      </div>  
     </div>
   )
 }
