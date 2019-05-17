@@ -45,7 +45,7 @@ export default class AddProject extends Component {
 
         return(
             <div className="add-project-container">
-                <input type="text" className={nameError ? "add-project-input-error" : "add-project-input"} placeholder="New List..." value={this.state.projectName} onChange={this.handleChange}/>
+                <input type="text" className={nameError ? "add-project-input add-project-input-error" : "add-project-input"} placeholder="New List..." value={this.state.projectName} onChange={this.handleChange}/>
                 <br/>
                 <button className="add-project-btn" onClick={this.addProject}>+</button>
             </div>

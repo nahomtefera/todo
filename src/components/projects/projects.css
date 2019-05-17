@@ -1,6 +1,21 @@
+
+.projects-container {
+    padding-right: 1.5em;
+    grid-area: projects;
+    border-right: 7px solid #fafafa;
+    text-align: right;
+    height: 100vh;
+    padding: 2em 0em;
+    position: fixed;
+    text-align: center;
+    width: 20%;
+    box-sizing: border-box;
+}
+
 .projects-inner-container {
     display: inline-block;
     text-align: center;
+    width: 100%;
 }
 
 .projects-title {
@@ -18,43 +33,50 @@
     text-align: left;
     padding: 0;
     margin-top: 0;
+    width: 100%;
+}
+
+.project-name:nth-child(1) {
+    border-top: 4px solid #fafafa;
 }
 
 .project-name {
-    margin: 1em 0;
-    letter-spacing: 4px;
+    padding: .8em 0;
+    padding-left: 2em;
+    letter-spacing: 3px;
     cursor: pointer;
     color: #7a7a7a7a;
-    font-weight: 500;
-    text-transform: uppercase;
+    font-weight: 600;
+    text-transform: capitalize;
+    border-bottom: 4px solid #fafafa;
 }
 
 .project-name:hover {
-    color: #1a1a1a;
+    color: #818181;
 }
 
-.active-project {
-    color: #1a1a1a;
+.active-project, .active-project:hover {
+    color: #197afb;
 }
 
 .add-project-input {
     border: none;
-    box-shadow: 0px 0px 2px 0px #eaeaea;
-    width: 100%;
-    border-radius: 5px;
+    box-shadow: 0px 0px 3px 0px #b9b9b9;
+    width: 75%;
+    border-radius: 13px;
     font-weight: 300;
     box-sizing: border-box;
     font-size: 18px;
-    padding: 6px 4px;
+    padding: 7px 4px;
     padding-left: 16px;
     color: #333;
     outline: none;
 }
 
 .add-project-input-error {
-    border: none;
+    /* border: none; */
     box-shadow: 0px 0px 3px 0px #ff7597;
-    width: 100%;
+    /* width: 100%;
     border-radius: 5px;
     font-weight: 300;
     box-sizing: border-box;
@@ -62,11 +84,11 @@
     padding: 6px 4px;
     padding-left: 16px;
     color: #333;
-    outline: none;
+    outline: none; */
 }
 
 .add-project-input:focus {
-    box-shadow: 0px 0px 3px 0px #31acff;
+    box-shadow: 0px 0px 3px 0px #74c393;
 }
 
 .add-project-btn {

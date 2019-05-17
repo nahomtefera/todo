@@ -8,7 +8,7 @@ div::selection, h2::selection, h3::selection, h1::selection, li::selection, inpu
 .main-app {
     display: grid;
     height: 100vh;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 4fr;
     grid-template-rows: 1fr;
     grid-template-areas: "projects tasks";
 }
@@ -26,18 +26,6 @@ div::selection, h2::selection, h3::selection, h1::selection, li::selection, inpu
 
 input::placeholder {
     color: #afafaf;
-}
-
-.projects-container {
-    padding-right: 1.5em;
-    grid-area: projects;
-    border-right: 7px solid #fafafa;
-    text-align: right;
-    height: 100vh;
-    padding: 2em 4em;
-    position: fixed;
-    width: 25%;
-    box-sizing: border-box;
 }
 
 .tasks-container {
