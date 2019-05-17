@@ -2,10 +2,14 @@
   position: absolute;
 }
 
+.hide-logo {
+  display: none;
+}
+
 .logo {
   width: 110px;
   padding: 10px;
-  transform: rotate(-9deg);
+  /* transform: rotate(-9deg); */
 }
 
 .logo_lp {
