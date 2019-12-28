@@ -46,7 +46,7 @@ export default class Projects extends Component {
         let changeProject = this.props.changeProject;
         let showProjects = this.props.showProjects; // For mobile responsiveness
         return(
-            <div className={showProjects === true ? "projects-container show-projects-mobile" : "projects-container"}>
+            <div className={showProjects === true ? "show-projects-mobile" : "projects-container"}>
                 <div className="projects-inner-container">
                     <h2 className="projects-title">Projects</h2>
                     <br/>

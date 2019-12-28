@@ -51,6 +51,33 @@
     border-bottom: 4px solid #fafafa;
 }
 
+.show-projects-mobile .project-name {
+    padding: .8em 0;
+    padding-left: 0;
+    text-align: left;
+    letter-spacing: 3px;
+    cursor: pointer;
+    color: #7a7a7a7a;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-bottom: none;
+}
+
+.show-projects-mobile .project-name:nth-child(1) {
+    border-top: none;
+}
+
+.show-projects-mobile .projects-list {
+    list-style: none;
+    display: inline-block;
+    text-align: left;
+    padding: 0;
+    margin-top: 0;
+    display: inline-block;
+    width: auto;
+}
+
+
 .project-name:hover {
     color: #818181;
 }
