@@ -11,7 +11,7 @@ export default class Tasks extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            currentProjectTitle: "All Projects",
+            currentProjectTitle: "All Tasks",
             tasks: [],
             showModal: false
         }
@@ -76,7 +76,7 @@ export default class Tasks extends Component {
         firebase.database().ref(`users/${this.props.uid}/projects/${currentProject}`).once('value').then(snap=>{
             currentProject !== "all-projects" 
                 ? this.setState({currentProjectTitle: snap.val().title})
-                : this.setState({currentProjectTitle: "All Projects"})
+                : this.setState({currentProjectTitle: "All Tasks"})
         })
     }
 
